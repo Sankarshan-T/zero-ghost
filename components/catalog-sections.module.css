@@ -1,0 +1,576 @@
+@keyframes enter {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        opacity: .45;
+    }
+
+    50% {
+        opacity: .9;
+    }
+}
+
+@keyframes cardFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(2deg);
+    }
+}
+
+@keyframes cardDrift {
+    from {
+        transform: translateY(-18%);
+    }
+
+    to {
+        transform: translateY(12%);
+    }
+}
+
+@keyframes chartDraw {
+    from {
+        stroke-dashoffset: 500;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.section {
+    scroll-margin-top: 5rem;
+}
+
+.heading {
+    max-width: 46rem;
+}
+
+.eyebrow {
+    margin-bottom: .8rem;
+    color: #d9ae65;
+    font-family: var(--font-geist-mono), monospace;
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+}
+
+.courseGrid {
+    display: grid;
+    grid-auto-rows: minmax(205px, auto);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .8rem;
+}
+
+.courseCard {
+    position: relative;
+    min-height: 220px;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(145deg, rgb(18 20 25 / 96%), rgb(12 14 18 / 98%));
+    animation: enter 650ms both;
+    transform-style: preserve-3d;
+    transition: transform 350ms cubic-bezier(.2, .8, .2, 1), background-color 250ms, box-shadow 350ms;
+}
+
+.courseCard::after {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(ellipse at 100% 0%, var(--card-tint), transparent 58%);
+    content: "";
+    opacity: .15;
+    pointer-events: none;
+    transition: opacity 350ms ease;
+}
+
+.courseCard:hover::after {
+    opacity: .3;
+}
+
+.courseCard:hover {
+    z-index: 1;
+    transform: perspective(800px) translateY(-8px) rotateX(2deg);
+    box-shadow: 0 18px 40px rgb(0 0 0 / 24%);
+}
+
+.courseFeature {
+    grid-column: span 2;
+    grid-row: span 2;
+    display: flex;
+    align-items: flex-end;
+    padding: clamp(1.5rem, 3vw, 2rem);
+}
+
+.courseFeature>div:last-child {
+    max-width: 28rem;
+}
+
+.courseWide {
+    grid-column: span 2;
+}
+
+.courseTag {
+    margin-top: 1.25rem;
+    color: var(--card-accent);
+    font-family: var(--font-geist-mono), monospace;
+    font-size: .58rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+.courseArt {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    overflow: hidden;
+    color: var(--card-accent);
+    opacity: .2;
+    pointer-events: none;
+    mask-image: linear-gradient(130deg, black 0%, transparent 85%);
+}
+
+.courseFeature .courseArt {
+    opacity: .35;
+}
+
+.gold {
+    --card-accent: #d9ae65;
+    --card-tint: #d9ae65;
+}
+
+.cyan {
+    --card-accent: #22d3ee;
+    --card-tint: #06b6d4;
+}
+
+.green {
+    --card-accent: #34d399;
+    --card-tint: #10b981;
+}
+
+.blue {
+    --card-accent: #38bdf8;
+    --card-tint: #0ea5e9;
+}
+
+.amber {
+    --card-accent: #fbbf24;
+    --card-tint: #f59e0b;
+}
+
+.violet {
+    --card-accent: #a78bfa;
+    --card-tint: #8b5cf6;
+}
+
+.red {
+    --card-accent: #fb6269;
+    --card-tint: #fb6269;
+}
+
+.icon {
+    color: var(--card-accent);
+    border: 1px solid color-mix(in srgb, var(--card-accent) 25%, transparent);
+    background: color-mix(in srgb, var(--card-accent) 10%, transparent);
+}
+
+.robotGhost {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    filter: drop-shadow(0 0 10px currentColor);
+}
+
+.robotGhostOne {
+    top: 15%;
+    right: 12%;
+    animation: cardFloat 5s ease-in-out infinite;
+}
+
+.robotGhostTwo {
+    top: 37%;
+    right: 35%;
+    width: 24px;
+    animation: cardFloat 6s 1s ease-in-out infinite reverse;
+}
+
+.robotGhostThree {
+    top: 10%;
+    right: 42%;
+    width: 17px;
+    animation: cardFloat 4s .5s ease-in-out infinite;
+}
+
+.binaryRain {
+    position: absolute;
+    top: -20%;
+    right: 6%;
+    bottom: -15%;
+    display: flex;
+    gap: clamp(8px, 2vw, 18px);
+    color: var(--card-accent);
+    font-family: var(--font-geist-mono), monospace;
+    font-size: clamp(9px, 1.2vw, 14px);
+    line-height: 1.65;
+    opacity: .65;
+}
+
+.binaryRain span {
+    writing-mode: vertical-rl;
+    word-spacing: 5px;
+    animation: cardDrift 7s linear infinite;
+}
+
+.binaryRain span:nth-child(2) {
+    animation-delay: -2s;
+    opacity: .65;
+}
+
+.binaryRain span:nth-child(3) {
+    animation-delay: -4s;
+    opacity: .4;
+}
+
+.binaryRain span:nth-child(4) {
+    animation-delay: -1s;
+    opacity: .75;
+}
+
+.marketLine {
+    position: absolute;
+    top: 20%;
+    right: -3%;
+    width: 62%;
+    overflow: visible;
+    filter: drop-shadow(0 0 6px var(--card-accent));
+}
+
+.marketLine path:first-child {
+    stroke: var(--card-accent);
+    stroke-width: 2;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 0;
+    animation: chartDraw 5s ease-in-out infinite alternate;
+}
+
+.marketFill {
+    fill: var(--card-accent);
+    opacity: .12;
+}
+
+.circuitGhost {
+    position: absolute;
+    top: 4%;
+    right: 0;
+    width: 54%;
+    height: 70%;
+    stroke-width: .7;
+    filter: drop-shadow(0 0 8px currentColor);
+    animation: glow 4s ease-in-out infinite;
+}
+
+.rocketGhost {
+    position: absolute;
+    top: 7%;
+    right: 8%;
+    width: 36%;
+    height: 62%;
+    stroke-width: .8;
+    filter: drop-shadow(0 0 9px currentColor);
+    animation: cardFloat 5.5s ease-in-out infinite;
+}
+
+.resourceGrid,
+.projectGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .8rem;
+}
+
+.resourceCard {
+    min-height: 216px;
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: linear-gradient(145deg, rgb(18 20 25 / 96%), rgb(12 14 18 / 98%));
+    animation: enter 600ms both;
+    transition: border-color 250ms ease, transform 250ms ease, background 250ms ease;
+}
+
+.resourceCard:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--card-accent) 38%, transparent);
+    background: radial-gradient(ellipse at 100% 0%, color-mix(in srgb, var(--card-accent) 9%, transparent), transparent 65%), #101216;
+}
+
+.resourceIcon {
+    display: flex;
+    width: 2.35rem;
+    height: 2.35rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    border: 1px solid color-mix(in srgb, var(--card-accent) 25%, transparent);
+    border-radius: .7rem;
+    background: color-mix(in srgb, var(--card-accent) 9%, transparent);
+}
+
+.resourceIcon svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    color: var(--card-accent);
+}
+
+.resourceCard h3 {
+    margin-bottom: .55rem;
+}
+
+.resourceCard>p {
+    min-height: 3.8rem;
+    color: var(--muted-foreground);
+    font-size: .72rem;
+    line-height: 1.55;
+}
+
+.resourcePrice {
+    margin-top: .8rem;
+    padding-top: .75rem;
+    border-top: 1px solid var(--border);
+    color: var(--card-accent);
+    font-family: var(--font-geist-mono), monospace;
+    font-size: .75rem;
+    font-weight: 700;
+}
+
+.ageNotice {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    margin-top: 1.6rem;
+    padding: .65rem .85rem;
+    border: 1px solid rgb(248 113 113 / 25%);
+    border-radius: .55rem;
+    background: rgb(248 113 113 / 5%);
+    color: #f87171;
+    font-family: var(--font-geist-mono), monospace;
+    font-size: .62rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.ageNotice svg {
+    width: .95rem;
+    height: .95rem;
+}
+
+.eliteCard {
+    position: relative;
+    isolation: isolate;
+    min-height: 310px;
+    overflow: hidden;
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: linear-gradient(145deg, rgb(18 20 25 / 96%), rgb(12 14 18 / 98%));
+    animation: enter 650ms both;
+    transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+
+.eliteCard:hover {
+    transform: translateY(-5px);
+    border-color: color-mix(in srgb, var(--card-accent) 42%, transparent);
+    box-shadow: 0 18px 40px rgb(0 0 0 / 24%);
+}
+
+.eliteCardTop {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: .6rem;
+    margin-bottom: 1rem;
+}
+
+.eliteIcon {
+    display: grid;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: 0 0 auto;
+    place-items: center;
+    border-radius: .7rem;
+    background: rgb(255 255 255 / 6%);
+    color: var(--card-accent);
+}
+
+.eliteIcon svg {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.eliteTag {
+    margin-top: .4rem;
+    padding: .3rem .55rem;
+    border-radius: 99px;
+    background: rgb(255 255 255 / 5%);
+    color: var(--card-accent);
+    font-family: var(--font-geist-mono), monospace;
+    font-size: .55rem;
+    white-space: nowrap;
+}
+
+.eliteGhost {
+    position: absolute;
+    z-index: 0;
+    top: 16%;
+    right: 14%;
+    width: 4rem;
+    height: 4rem;
+    color: var(--card-accent);
+    opacity: .15;
+    filter: drop-shadow(0 0 10px currentColor);
+    animation: cardFloat 5s ease-in-out infinite;
+}
+
+.eliteCard h3,
+.eliteDetail,
+.elitePrice,
+.eliteLink {
+    position: relative;
+    z-index: 1;
+}
+
+.eliteCard h3 {
+    margin-bottom: .55rem;
+}
+
+.eliteDetail {
+    min-height: 4.2rem;
+    color: var(--muted-foreground);
+    font-size: .7rem;
+    line-height: 1.6;
+}
+
+.elitePrice {
+    margin-top: .9rem;
+    padding-top: .8rem;
+    border-top: 1px solid var(--border);
+    color: var(--card-accent);
+    font-family: var(--font-geist-mono), monospace;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.eliteLink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: .9rem;
+    color: var(--muted-foreground);
+    font-size: .62rem;
+    transition: color 200ms ease;
+}
+
+.eliteLink:hover {
+    color: var(--card-accent);
+}
+
+.eliteLink svg {
+    width: 1rem;
+    height: 1rem;
+    color: var(--card-accent);
+}
+
+@media (hover: hover) {
+    .courseCard:hover {
+        border-color: color-mix(in srgb, var(--card-accent) 45%, transparent);
+    }
+}
+
+@media (max-width: 900px) {
+    .courseGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .courseFeature {
+        grid-row: span 1;
+    }
+
+    .courseFeature,
+    .courseWide {
+        grid-column: span 2;
+    }
+
+    .resourceGrid,
+    .projectGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+
+    .courseGrid,
+    .resourceGrid,
+    .projectGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .courseFeature,
+    .courseWide {
+        grid-column: auto;
+    }
+
+    .courseCard {
+        min-height: 230px;
+    }
+
+    .courseFeature {
+        min-height: 300px;
+    }
+
+    .resourceCard {
+        min-height: 0;
+    }
+
+    .resourceCard>p,
+    .eliteDetail {
+        min-height: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .courseCard,
+    .courseCard *,
+    .resourceCard,
+    .eliteCard,
+    .eliteCard * {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        will-change: auto !important;
+    }
+}

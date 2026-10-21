@@ -1,0 +1,58 @@
+@keyframes enter {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.nav {
+    position: relative;
+    z-index: 10;
+    background: rgb(8 9 11 / 92%);
+}
+
+.navInner {
+    min-height: 52px;
+}
+
+.brand img {
+    border: 1px solid rgb(217 174 101 / 20%);
+    border-radius: .45rem;
+    background: #111110;
+    padding: 3px;
+    box-shadow: 0 0 18px rgb(217 174 101 / 15%);
+}
+
+.brand span {
+    color: #d9ae65;
+}
+
+.contact {
+    margin-bottom: 1rem;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    border-color: #d9ae65;
+}
+
+.contactEyebrow {
+    margin-bottom: .8rem;
+    color: #d9ae65;
+    font-family: var(--font-geist-mono), monospace;
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .nav {
+        animation: enter 650ms both;
+    }
+}

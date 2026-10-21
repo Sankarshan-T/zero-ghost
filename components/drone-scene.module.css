@@ -1,0 +1,324 @@
+@keyframes sceneEnter {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes orbitSpin {
+    to {
+        transform: translate(-50%, -50%) rotateX(68deg) rotate(calc(var(--orbit-angle) + 360deg));
+    }
+}
+
+@keyframes chipDrift {
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(0, -10px, 0);
+    }
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        opacity: .45;
+    }
+
+    50% {
+        opacity: .9;
+    }
+}
+
+@keyframes signalPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgb(217 174 101 / 55%);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgb(217 174 101 / 0%);
+    }
+}
+
+.scene {
+    isolation: isolate;
+    position: relative;
+    width: min(100%, 460px);
+    aspect-ratio: 1;
+    margin-inline: auto;
+    contain: layout paint;
+    overflow: hidden;
+    border: 1px solid rgb(217 174 101 / 24%);
+    background: radial-gradient(ellipse at 52% 48%, rgb(217 174 101 / 10%), transparent 58%), linear-gradient(145deg, #111110 0%, #09090d 72%);
+    box-shadow: 0 25px 100px rgb(217 174 101 / 9%), inset 0 0 60px rgb(217 174 101 / 5%);
+    perspective: 900px;
+    animation: sceneEnter 900ms 120ms both;
+}
+
+.grid {
+    position: absolute;
+    inset: 0;
+    opacity: .3;
+    background-image: linear-gradient(rgb(217 174 101 / 10%) 1px, transparent 1px), linear-gradient(90deg, rgb(217 174 101 / 10%) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: linear-gradient(transparent, black 20%, black 80%, transparent);
+}
+
+.glow {
+    position: absolute;
+    z-index: -1;
+    top: 28%;
+    left: 28%;
+    width: 45%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #d9ae65;
+    filter: blur(75px);
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 73%;
+    aspect-ratio: 1;
+    border: 1px solid rgb(217 174 101 / 20%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) rotateX(68deg) rotate(var(--orbit-angle));
+    will-change: transform;
+}
+
+.orbit::before {
+    position: absolute;
+    top: 14%;
+    left: 12%;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #f4d79e;
+    box-shadow: 0 0 15px 3px #d9ae65;
+    content: "";
+}
+
+.orbitOne {
+    --orbit-angle: -18deg;
+    animation: orbitSpin 18s linear infinite;
+}
+
+.orbitTwo {
+    --orbit-angle: 44deg;
+    width: 59%;
+    border-style: dashed;
+    opacity: .5;
+    animation: orbitSpin 28s linear infinite reverse;
+}
+
+.orbitThree {
+    --orbit-angle: -38deg;
+    width: 86%;
+    opacity: .4;
+}
+
+.droneFloat {
+    position: absolute;
+    z-index: 2;
+    inset: 18% 12% 19%;
+    display: grid;
+    place-items: center;
+}
+
+.animation {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 18px 24px rgb(0 0 0 / 38%));
+}
+
+.animation canvas {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1.1);
+    transform-origin: center;
+}
+
+.label,
+.codeFloat,
+.telemetry {
+    position: absolute;
+    z-index: 5;
+    font-family: var(--font-geist-mono), monospace;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #a8a3b5;
+    font-size: 8px;
+    letter-spacing: .16em;
+}
+
+.labelTop {
+    top: 22px;
+    left: 22px;
+}
+
+.labelTop svg {
+    color: #d9ae65;
+}
+
+.labelBottom {
+    bottom: 20px;
+    left: 22px;
+}
+
+.statusDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #d9ae65;
+    animation: signalPulse 1.8s infinite;
+}
+
+.codeFloat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgb(217 174 101 / 20%);
+    padding: 9px 11px;
+    color: #bbb5c9;
+    background: rgb(18 16 27 / 82%);
+    box-shadow: 0 8px 25px rgb(0 0 0 / 22%);
+    font-size: 9px;
+    letter-spacing: .03em;
+    backdrop-filter: blur(10px);
+}
+
+.codeFloat svg {
+    width: 13px;
+    color: #d9ae65;
+}
+
+.codeFloat b {
+    color: #f4d79e;
+    font-weight: 600;
+}
+
+.codeFloatOne {
+    top: 30%;
+    right: 5%;
+    animation: chipDrift 4.4s ease-in-out infinite;
+    will-change: transform;
+}
+
+.codeFloatTwo {
+    top: 57%;
+    left: 4%;
+    animation: chipDrift 5.2s .4s ease-in-out infinite;
+    will-change: transform;
+}
+
+.codeFloatTwo b {
+    color: #4ade80;
+}
+
+.codeFloatThree {
+    right: 8%;
+    bottom: 23%;
+    animation: chipDrift 4.8s .8s ease-in-out infinite;
+    will-change: transform;
+}
+
+.telemetry {
+    right: 22px;
+    bottom: 20px;
+    display: flex;
+    gap: 18px;
+    text-align: right;
+}
+
+.telemetry div {
+    display: grid;
+    gap: 4px;
+}
+
+.telemetry span {
+    color: #777183;
+    font-size: 7px;
+    letter-spacing: .1em;
+}
+
+.telemetry strong {
+    color: #e9e5f2;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+@media (max-width: 520px) {
+    .animation canvas {
+        transform: scale(1);
+    }
+
+    .label {
+        font-size: 7px;
+    }
+
+    .labelTop {
+        top: 15px;
+        left: 14px;
+    }
+
+    .labelBottom {
+        bottom: 14px;
+        left: 14px;
+    }
+
+    .telemetry {
+        right: 14px;
+        bottom: 14px;
+        gap: 10px;
+    }
+
+    .telemetry span {
+        font-size: 6px;
+    }
+
+    .telemetry strong {
+        font-size: 8px;
+    }
+
+    .codeFloat {
+        padding: 7px 8px;
+        font-size: 7px;
+    }
+
+    .codeFloat svg {
+        width: 11px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .scene,
+    .scene *,
+    .scene *::before,
+    .scene *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        will-change: auto !important;
+    }
+}
