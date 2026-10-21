@@ -5,7 +5,7 @@ import styles from "@/components/brand-hero.module.css";
 const specialties = [
     { label: "Robotics", href: "#courses" },
     { label: "Coding", href: "#courses" },
-    { label: "Stock Market", href: "#courses" },
+    { label: "AI & Machine Learning", href: "#courses" },
     { label: "Ethical Hacking", href: "#courses" },
 ];
 
@@ -79,7 +79,7 @@ export function BrandHero() {
                 <p className={styles.subtitle}>PROJECTS</p>
                 <p className={styles.intro}>
                     The future belongs to those who build it not those who wait for it. Robotics,
-                    coding, markets, and cybersecurity training for the next generation of innovators.
+                    coding, AI, and cybersecurity training for the next generation of innovators.
                 </p>
                 <div className={styles.specialties}>
                     {specialties.map((item) => (

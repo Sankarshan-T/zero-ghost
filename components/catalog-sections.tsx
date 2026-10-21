@@ -2,9 +2,9 @@ import {
     ArrowUpRight,
     Bike,
     BookOpen,
+    BrainCircuit,
     Bot,
     CarFront,
-    ChartNoAxesCombined,
     CircuitBoard,
     Code2,
     Cpu,
@@ -36,12 +36,12 @@ const courses = [
         layout: "",
     },
     {
-        name: "Stock Market Mastery",
+        name: "AI & Machine Learning",
         tag: "Foundation → Pro",
-        detail: "Strategic investment principles, market analysis, risk management, and financial intelligence for building long-term wealth.",
+        detail: "Explore machine learning, intelligent applications, and practical AI projects using real-world data and code.",
         color: "green",
-        art: "markets",
-        icon: ChartNoAxesCombined,
+        art: "ai",
+        icon: BrainCircuit,
         layout: "",
     },
     {
@@ -96,10 +96,10 @@ const kits = [
         color: "green",
     },
     {
-        name: "Stock Market Workbook",
-        detail: "Step-by-step workbook for learning market analysis, portfolio tracking, technical charting, and investment strategy building.",
+        name: "Robotics Project Workbook",
+        detail: "Step-by-step project guide covering robotics fundamentals, circuit diagrams, coding exercises, and build challenges.",
         price: "₹ 399 – ₹ 699",
-        icon: ChartNoAxesCombined,
+        icon: Bot,
         color: "amber",
     },
     {
@@ -211,12 +211,7 @@ export function CatalogSections() {
                                                 <span>0 0 1 1 0 1 0 1 1 0 1 0</span>
                                             </div>
                                         )}
-                                        {course.art === "markets" && (
-                                            <svg className={styles.marketLine} viewBox="0 0 240 110" fill="none">
-                                                <path d="M2 86 34 74 58 80 83 49 105 58 132 30 157 44 183 18 208 30 238 8" />
-                                                <path className={styles.marketFill} d="M2 86 34 74 58 80 83 49 105 58 132 30 157 44 183 18 208 30 238 8V110H2Z" />
-                                            </svg>
-                                        )}
+                                        {course.art === "ai" && <BrainCircuit className={styles.aiGhost} />}
                                         {course.art === "electronics" && <CircuitBoard className={styles.circuitGhost} />}
                                         {course.art === "innovation" && <Rocket className={styles.rocketGhost} />}
                                     </div>

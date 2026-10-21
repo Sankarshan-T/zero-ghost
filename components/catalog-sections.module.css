@@ -44,16 +44,6 @@
     }
 }
 
-@keyframes chartDraw {
-    from {
-        stroke-dashoffset: 500;
-    }
-
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
 .section {
     scroll-margin-top: 5rem;
 }
@@ -265,26 +255,15 @@
     opacity: .75;
 }
 
-.marketLine {
+.aiGhost {
     position: absolute;
-    top: 20%;
-    right: -3%;
-    width: 62%;
-    overflow: visible;
-    filter: drop-shadow(0 0 6px var(--card-accent));
-}
-
-.marketLine path:first-child {
-    stroke: var(--card-accent);
-    stroke-width: 2;
-    stroke-dasharray: 500;
-    stroke-dashoffset: 0;
-    animation: chartDraw 5s ease-in-out infinite alternate;
-}
-
-.marketFill {
-    fill: var(--card-accent);
-    opacity: .12;
+    top: 8%;
+    right: 7%;
+    width: 48%;
+    height: 78%;
+    stroke-width: .7;
+    filter: drop-shadow(0 0 8px currentColor);
+    animation: glow 4s ease-in-out infinite;
 }
 
 .circuitGhost {
