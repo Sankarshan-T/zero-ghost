@@ -20,6 +20,12 @@
     min-height: 52px;
 }
 
+.container {
+    width: min(100%, 1440px);
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 3.5rem);
+}
+
 .brand img {
     border: 1px solid rgb(217 174 101 / 20%);
     border-radius: .45rem;

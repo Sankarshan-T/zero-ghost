@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <nav className={`${styles.nav} border-b border-border/70`}>
-        <div className={`${styles.navInner} mx-auto flex max-w-5xl items-center justify-between px-5 sm:px-8`}>
+        <div className={`${styles.navInner} ${styles.container} flex items-center justify-between`}>
           <a
             href="#top"
             className={`${styles.brand} flex items-center gap-2 font-heading text-sm font-bold tracking-[0.08em]`}
@@ -74,7 +74,7 @@ export default function Home() {
 
       <section
         id="contact"
-        className={`${styles.contact} mx-auto max-w-5xl border-t border-border px-5 py-16 sm:px-8 sm:py-20`}
+        className={`${styles.contact} ${styles.container} border-t border-border py-16 sm:py-20`}
       >
         <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
           <div>

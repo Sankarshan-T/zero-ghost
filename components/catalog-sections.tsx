@@ -177,7 +177,7 @@ export function CatalogSections() {
     return (
         <>
             <section id="courses" className={styles.section}>
-                <div className="mx-auto max-w-5xl px-5 py-20 sm:px-8 sm:py-24">
+                <div className={`${styles.container} py-20 sm:py-24`}>
                     <div className={`${styles.heading} mb-10`}>
                         <SectionEyebrow>{"LEARNING PATHS"}</SectionEyebrow>
                         <h2 className="font-heading text-4xl font-bold sm:text-5xl">Courses &amp; Programs</h2>
@@ -236,7 +236,7 @@ export function CatalogSections() {
             </section>
 
             <section id="kits" className={`${styles.section} border-y border-border bg-card/30`}>
-                <div className="mx-auto max-w-5xl px-5 py-20 sm:px-8 sm:py-24">
+                <div className={`${styles.container} py-20 sm:py-24`}>
                     <div className={`${styles.heading} mb-10`}>
                         <SectionEyebrow>{"SERVICES & PRODUCTS"}</SectionEyebrow>
                         <h2 className="font-heading text-4xl font-bold sm:text-5xl">Kits &amp; Resources</h2>
@@ -262,7 +262,7 @@ export function CatalogSections() {
             </section>
 
             <section id="projects" className={styles.section}>
-                <div className="mx-auto max-w-5xl px-5 py-20 sm:px-8 sm:py-24">
+                <div className={`${styles.container} py-20 sm:py-24`}>
                     <div className={`${styles.heading} mb-10`}>
                         <SectionEyebrow>{"PRO LEVEL"}</SectionEyebrow>
                         <h2 className="font-heading text-4xl font-bold sm:text-5xl">Elite Projects</h2>
