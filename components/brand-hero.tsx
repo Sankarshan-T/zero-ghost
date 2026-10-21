@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Activity, ArrowDown, Code2, Cpu, Database, Radio, Sparkles } from "lucide-react";
+import { Activity, ArrowDown, Code2, Cpu, Database, Radio } from "lucide-react";
 import styles from "@/components/brand-hero.module.css";
 
 const specialties = [
@@ -65,7 +65,6 @@ export function BrandHero() {
             </div>
 
             <div className={styles.content}>
-                <div className={styles.pill}><Sparkles /> EST. 2026 — INNOVATE. BUILD. DOMINATE.</div>
                 <Image
                     className={styles.logo}
                     src="/logo.png"
@@ -79,7 +78,7 @@ export function BrandHero() {
                 </h1>
                 <p className={styles.subtitle}>PROJECTS</p>
                 <p className={styles.intro}>
-                    The future belongs to those who build it—not those who wait for it. Robotics,
+                    The future belongs to those who build it not those who wait for it. Robotics,
                     coding, markets, and cybersecurity training for the next generation of innovators.
                 </p>
                 <div className={styles.specialties}>

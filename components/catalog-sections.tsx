@@ -111,7 +111,7 @@ const kits = [
     },
     {
         name: "Custom Project Kits",
-        detail: "Tailored component kits built for specific project requirements — drones, bots, automated systems. Inquire for pricing.",
+        detail: "Tailored component kits built for specific project requirements - drones, bots, automated systems. Inquire for pricing.",
         price: "₹ 3,000+",
         icon: Package,
         color: "blue",
@@ -182,7 +182,7 @@ export function CatalogSections() {
                         <SectionEyebrow>{"LEARNING PATHS"}</SectionEyebrow>
                         <h2 className="font-heading text-4xl font-bold sm:text-5xl">Courses &amp; Programs</h2>
                         <p className="mt-3 max-w-lg text-sm leading-6 text-muted-foreground">
-                            Hands-on learning paths for curious minds—from first circuits to advanced autonomous builds.
+                            Hands-on learning paths for curious minds - from first circuits to advanced autonomous builds.
                         </p>
                     </div>
 
@@ -266,7 +266,7 @@ export function CatalogSections() {
                     <div className={`${styles.heading} mb-10`}>
                         <SectionEyebrow>{"PRO LEVEL"}</SectionEyebrow>
                         <h2 className="font-heading text-4xl font-bold sm:text-5xl">Elite Projects</h2>
-                        <div className={styles.ageNotice}><ShieldCheck /> Age 14+ only — starting from ₹30,000+</div>
+                        <div className={styles.ageNotice}><ShieldCheck /> Age 14+ only - starting from ₹30,000+</div>
                     </div>
 
                     <div className={styles.projectGrid}>

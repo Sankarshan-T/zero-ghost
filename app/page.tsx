@@ -78,7 +78,7 @@ export default function Home() {
       >
         <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className={styles.contactEyebrow}>{"// 05 — GET IN TOUCH"}</p>
+            <p className={styles.contactEyebrow}>{"GET IN TOUCH"}</p>
             <h2 className="font-heading text-4xl font-bold leading-none sm:text-6xl">
               Let&apos;s
               <br />
